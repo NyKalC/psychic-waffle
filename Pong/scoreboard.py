@@ -19,10 +19,12 @@ class ScoreBoard(Turtle):
         self.draw_net()
 
     def player_1_scoreboard(self):
+        self.penup()
         self.goto(-50, (self.width/2 - 80))
         self.write(self.player_1_score, False, self.align, font=self.font)
 
     def player_2_scoreboard(self):
+        self.penup()
         self.goto(50, (self.width/2 - 80))
         self.write(self.player_2_score, False, self.align, font=self.font)
 
@@ -32,3 +34,16 @@ class ScoreBoard(Turtle):
         self.pensize(10)
         self.pendown()
         self.forward(self.width)
+
+    def player1_score(self):
+        self.player_1_score += 1
+        self.player_1_scoreboard()
+        self.player_2_scoreboard()
+        self.draw_net()
+
+
+    def player2_score(self):
+        self.player_2_score += 1
+        self.player_1_scoreboard()
+        self.player_2_scoreboard()
+        self.draw_net()
